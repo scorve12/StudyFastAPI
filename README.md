@@ -1,0 +1,2 @@
+# StudyFastAPI
+for FastAPI
