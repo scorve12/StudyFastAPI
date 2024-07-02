@@ -14,3 +14,11 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 #autocommit = True를 할 경우 commit이 없기 때문에 rollback또한 할 수 없다.
 
 Base = declarative_base() 
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
