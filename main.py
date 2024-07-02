@@ -1,6 +1,12 @@
 from typing import Optional
 from fastapi import FastAPI
 
+import models
+from database import engine
+
+#models연결
+models.Base.metadata.create_all(bind=engine)
+
 app = FastAPI()
 
 @app.get("/")
