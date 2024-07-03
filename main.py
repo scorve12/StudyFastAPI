@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 import models
 from database import engine
 
+from domain.answer import answer_router
 from domain.question import question_router
 
 #models연결
@@ -31,3 +32,4 @@ def hello():
 
 #router객체 포함
 app.include_router(question_router.router)
+app.include_router(answer_router.router)

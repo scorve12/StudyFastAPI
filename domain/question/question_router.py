@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from database import get_db
-from database import SessionLocal, question_crud
-#from models import Question
+#from database import SessionLocal, question_crud
+from models import Question
 
-from domain.question import question_schema
+from domain.question import question_schema, question_crud
 
 router = APIRouter(
     prefix="/api/question",
