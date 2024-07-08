@@ -1,6 +1,7 @@
 # StudyFastAPI
 for FastAPI
 ref(https://wikidocs.net/176222#pydantic)
+AWS배포
 
 ### 기초 명령어
 ```
