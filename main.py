@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.templating import Jinja2Templates
+
 from starlette.middleware.cors import CORSMiddleware
 
 import models
@@ -12,6 +14,7 @@ models.Base.metadata.create_all(bind=engine)
 
 #FastAPI객체 할당
 app = FastAPI()
+template = Jinja2Templates(directory="templates")
 
 origins = [
     "http://127.0.0.0:5173",
@@ -25,6 +28,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def read_root():
+    return template.TemplateResponse("test.html", {"request": "request"})
 
 @app.get("/hello")
 def hello():
